@@ -1,0 +1,39 @@
+{
+  "name": "moroccan-ig",
+  "version": "1.0.0",
+  "description": "an ig clone made to share The Cherifian Moroccan Kingdom Beauty with the world",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thefledgedhurricane/moroccan-ig.git"
+  },
+  "keywords": [
+    "Morocco",
+    "instagram",
+    "pictures"
+  ],
+  "author": "Ihababdelbasset ANNAKI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thefledgedhurricane/moroccan-ig/issues"
+  },
+  "homepage": "https://github.com/thefledgedhurricane/moroccan-ig#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.5"
+  },
+  "devDependencies": {
+    "axios": "^0.24.0"
+  }
+}
