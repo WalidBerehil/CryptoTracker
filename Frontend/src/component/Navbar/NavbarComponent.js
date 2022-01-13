@@ -8,34 +8,65 @@ import {
     Navbar,
     NavDropdown
 } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const NavbarComponent = () => {
-    return (
+    let history = useHistory();
+    function logout ()  {
+        localStorage.removeItem("user-token");
+        history.push('/login')
+     }
+
+let x = false;
+     if(localStorage.getItem('user-token'))
+     {
+         x = true;
+     }
+
+     if(x)
+     {return (
         <Navbar collapseOnSelect expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#home">CryptoTracker</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider/>
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
+                <Nav className="me-auto">
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="profile">Profile</Nav.Link>
+                        </Nav> 
                     <Nav>
-                        <Nav.Link href="#login">Login</Nav.Link>
-                        <Nav.Link href="#register">Register</Nav.Link>
-                    </Nav>
+        <Nav.Link onClick={logout}>Logout</Nav.Link>
+       </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     )
+       
+     }
+     else{
+        return (
+            <Navbar collapseOnSelect expand="lg" variant="dark">
+                <Container>
+                    <Navbar.Brand href="#home">CryptoTracker</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="profile">Home</Nav.Link>
+                            <Nav.Link href="/">Profile</Nav.Link>
+                        </Nav>    
+                        <Nav>
+        <Nav.Link href="login">Login</Nav.Link>
+        <Nav.Link href="register">Register</Nav.Link>
+       </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        )
+       
+     }
+
+    
 }
 
 export default NavbarComponent

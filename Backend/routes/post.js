@@ -51,29 +51,38 @@ router.get('/mypost', requireLogin, (req, res) => {
             coinList += element.body + "%2C";         
         });
         coinList=coinList.substring(0,coinList.length-3);
+console.log(coinList);
+if(coinList)
+{
+    console.log("test")
+    let apiLink = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+coinList+"&order=market_cap_desc&per_page=10&page=1&sparkline=false";
+    axios.get(apiLink).then((result) => {
+        y=JSON.parse(JSON.stringify(result.data));
 
-        let apiLink = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+coinList+"&order=market_cap_desc&per_page=10&page=1&sparkline=false";
-        axios.get(apiLink).then((result) => {
-            y=JSON.parse(JSON.stringify(result.data));
-
-            for(var k in result.data) {
-                //Navigate in every element of the user coins
-                mypost.forEach(element => {
-                     //Condition to see if the user's coin name is the same of the api so we add his amount to the api   
-                    if(element.body == result.data[k].id)
-                    {                     
-                        result.data[k].useramount = element.amount;
-                    }
-                    
-                });
-      
-             }
-            //console.log(y);
-            //console.log(JSON.parse(JSON.stringify(result.data)).bitcoin);
-            res.json(JSON.parse(JSON.stringify(result.data)))
-            //res.json(JSON.parse(JSON.stringify(mypost)))
-            //[1].body
-        });
+        for(var k in result.data) {
+            //Navigate in every element of the user coins
+            mypost.forEach(element => {
+                 //Condition to see if the user's coin name is the same of the api so we add his amount to the api   
+                if(element.body == result.data[k].id)
+                {                     
+                    result.data[k].useramount = element.amount;
+                    result.data[k].idPost = element._id;
+                }
+                
+            });
+  
+         }
+        //console.log(coinList);
+        //console.log(JSON.parse(JSON.stringify(result.data)).bitcoin);
+        res.json(JSON.parse(JSON.stringify(result.data)))
+        //res.json(JSON.parse(JSON.stringify(mypost)))
+        //[1].body
+    });
+}
+else{
+    res.json("No Post");
+}
+       
 
     }).catch(err => {
         console.log(err)

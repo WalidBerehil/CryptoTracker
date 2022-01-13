@@ -52,7 +52,7 @@ router.post('/signup',(req,res)=>{
 })
 
 
-router.get('/signin',(req,res)=>{
+router.post('/signin',(req,res)=>{
     const {email,password} = req.body
     if(!email || !password){
        return res.status(422).json({error:"please add email or password"})
