@@ -37,12 +37,6 @@ const Home = () => {
                             onChange={handleChange}/>
                     </form>
                 </div>
-                {/* <select name="ete" id="">
-                {filteredCoins.map(coin => 
-                    <option value={coin.id} data-content="<i class='fa fa-address-book-o' aria-hidden='true'></i>Option1">{coin.name}</option>
-                )}
-                </select> */}
-               
                 <Container>
                     <Row>
                         <Table striped bordered hover variant="dark">
