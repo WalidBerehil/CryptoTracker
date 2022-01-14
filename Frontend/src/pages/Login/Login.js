@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {useHistory} from "react-router-dom";
 import NavbarComponent from '../../component/Navbar/NavbarComponent';
-import { useForm } from "react-hook-form";
 
 function Login() {
     const [email,setEmail]=useState("");

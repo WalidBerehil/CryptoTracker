@@ -2,18 +2,11 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {
-    FormControl,
-    
-    Nav,
-    Navbar,
-    NavDropdown
-} from 'react-bootstrap'
+
 import './Profile.css';
 
 
 import NavbarComponent from '../../component/Navbar/NavbarComponent';
-import {Table, Container, Row} from 'react-bootstrap';
 import Coinsprofile from '../../component/Coinsprofile/Coinsprofile';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // export default class Profile extends Component {
@@ -143,13 +136,13 @@ const Profile = () => {
         }
 
 
-    }, []);
+    }, [history]);
 
     const handleChange = e => {
         setSearch1(e.target.value)
     }
 
-if(coins1!="No Post"){
+if(coins1!=="No Post"){
     const filteredCoins = coins1.filter(coin => coin.name.toLowerCase().includes(search1.toLowerCase()))
 
   

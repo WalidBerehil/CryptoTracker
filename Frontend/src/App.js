@@ -1,10 +1,8 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import Coin from './component/Coins/Coin';
+import React from 'react';
+
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from './pages/Home/Home';
-import NavbarComponent from './component/Navbar/NavbarComponent';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Profile from './pages/Profile/Profile';

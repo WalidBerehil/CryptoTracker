@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Table, Container, Row} from 'react-bootstrap';
+import {Table, Container, Row, Image} from 'react-bootstrap';
 
 import './Home.css';
 
@@ -37,18 +37,24 @@ const Home = () => {
                             onChange={handleChange}/>
                     </form>
                 </div>
+                {/* <select name="ete" id="">
+                {filteredCoins.map(coin => 
+                    <option value={coin.id} data-content="<i class='fa fa-address-book-o' aria-hidden='true'></i>Option1">{coin.name}</option>
+                )}
+                </select> */}
+               
                 <Container>
                     <Row>
                         <Table striped bordered hover variant="dark">
-                            <thead> {/* <tr>     
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-    </tr> */} </thead>
+                            <thead> { <tr >     
+      <th></th>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>Total Volume</th>
+      <th>Price Change % 24h</th>
+      <th>Market Cap</th>
+    </tr> } </thead>
                             <tbody> {
                                 filteredCoins.map(coin => {
                                     return <Coin key={

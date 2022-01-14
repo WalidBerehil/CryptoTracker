@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
 import './Coinsprofile.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Form} from 'react-bootstrap';
 import axios from 'axios';
 
 
@@ -23,10 +22,7 @@ const Coinsprofile
 } )=> {
      
     
-    useEffect(() => {
-     
-
-     }, []);
+    
 
      const deletePost = (id) =>{
       
@@ -60,7 +56,7 @@ const Coinsprofile
    
         <div className="col-md-3">
             <div className="card p-2 py-3 text-center">
-                <div className="img mb-2"> <img src={image} width="70" className="rounded-circle"/> </div>
+                <div className="img mb-2"> <img alt="coin" src={image} width="70" className="rounded-circle"/> </div>
                 <h5 className="mb-0">{symbol}</h5> <small>{name}</small>
                 <div className="ratings">{price} </div>
                 <div className="ratings">{userquantity} </div>

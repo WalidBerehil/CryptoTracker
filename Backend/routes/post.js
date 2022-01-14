@@ -90,7 +90,7 @@ else{
 })
 
 router.get('/topcoins', (req, res) => {
-    let apiLink = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false";
+    let apiLink = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
         axios.get(apiLink).then((result) => {
 
             res.json(JSON.parse(JSON.stringify(result.data)))
